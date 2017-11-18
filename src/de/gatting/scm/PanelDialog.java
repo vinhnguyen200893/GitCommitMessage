@@ -6,6 +6,7 @@ import com.intellij.openapi.extensions.PluginId;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import org.jetbrains.annotations.Nullable;
+import org.apache.commons.lang.StringUtils;
 
 import javax.swing.*;
 
@@ -32,6 +33,6 @@ public class PanelDialog extends DialogWrapper {
     }
 
     String getCommitMessage(Project project) {
-        return (panel.getTicket()).toLowerCase() + " " + panel.getShortDescription();
+        return (panel.getTicket()).toUpperCase() + " " + StringUtils.capitalize(panel.getShortDescription().toLowerCase());
     }
 }
